@@ -1,8 +1,9 @@
 /*jshint esversion: 6 */
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import Accordion from "./components/Accordion";
 import Search from "./components/Search";
+import Dropdown from "./components/Dropdown";
 
 const items = [
   {
@@ -19,12 +20,41 @@ const items = [
   }
 ];
 
-export default function App() {
+const options = [
+  {
+    label: "Red",
+    value: "RED"
+  },
+  {
+    label: "Green",
+    value: "GREEN"
+  },
+  {
+    label: "Blue",
+    value: "BLUE"
+  }
+];
 
+const App = () => {
+
+  const [selected, setSelected] = useState(options[0]);
+
+  const [showDropDown, setShowDropDown] = useState(true);
+  
   return (
     <div>
+      <button onClick={() => setShowDropDown(!showDropDown)}>Toggle Dropdown</button>
+      {showDropDown ? 
+        <Dropdown
+        selected={selected}
+        onSelectedChange={setSelected}
+        options={options}
+      /> : null
+      }
       {/*<Accordion items={items} />*/}
-      <Search />
+      {/*<Search />*/}
     </div>
   );
-}
+};
+
+export default App;
