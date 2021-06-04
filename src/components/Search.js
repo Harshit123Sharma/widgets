@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Search = () => {
 
-    const [term, setTerm] = useState("program");
+    const [term, setTerm] = useState("Marvel");
     const [debouncedTerm, setDebouncedTerm] = useState(term);
     const [results, setResults] = useState([]);
 
@@ -35,28 +35,28 @@ const Search = () => {
 
     const renderedResults = results.map((result) => {
         return (
-            <div key={result.pageid} className="item">
-                <div className="right floated content">
-                    <a
-                        className="ui button"
-                        href={`https://en.wikipedia.org?curid=${result.pageid}`}
-                        >
-                            GO
-                    </a>
-                </div>
-                <div className="content">
-                    <div className="header">
-                        {result.title}
-                    </div>
-                    <span dangerouslySetInnerHTML={{ __html: result.snippet}} />
-                </div>
+          <div key={result.pageid} className="item">
+            <div className="right floated content">
+              <a
+                className="ui button"
+                href={`https://en.wikipedia.org?curid=${result.pageid}`}
+              >
+                GO
+              </a>
             </div>
+            <div className="content">
+              <div className="header" style={{ color: "white", fontWeight: "bold", textDecorationLine: "underline" }}>
+                {result.title}
+              </div>
+              <span dangerouslySetInnerHTML={{ __html: result.snippet }} />
+            </div>
+          </div>
         );
     });
 
     return (
-        <div>
-            <div className="ui form">
+        <div className="ui inverted segment">
+            <div className="ui inverted form">
                 <div className="field">
                     <label>Enter Search Term</label>
                     <input 

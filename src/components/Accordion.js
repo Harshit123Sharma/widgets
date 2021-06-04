@@ -28,9 +28,9 @@ const Accordion = ({ items }) => {
     });
 
     return (
-        <div className="ui styled accordion">
-            {renderedItems}
-        </div>
+      <div className="ui inverted segment">
+        <div className="ui inverted accordion">{renderedItems}</div>
+      </div>
     );
 };
 

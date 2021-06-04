@@ -24,8 +24,8 @@ const Translate = () => {
     const [text, setText] = useState("");
 
     return (
-        <div>
-            <div className="ui form">
+        <div className="ui inverted segment">
+            <div className="ui inverted form">
                 <div className="field">
                     <label>Enter Text</label>
                     <input placeholder="Enter Text" value={text} onChange={(e) => setText(e.target.value)} />
@@ -37,7 +37,7 @@ const Translate = () => {
              onSelectedChange={setLanguage} 
             />
             <hr />
-            <h3 className="header">Output</h3>
+            <h3 className="ui center aligned header">Output</h3>
             <Convert text={text} language={language} />
         </div>
     );
